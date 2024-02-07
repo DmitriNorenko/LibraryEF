@@ -28,6 +28,13 @@ namespace LibraryEF
         {
             Console.WriteLine("Введите id пользователя для удаления: ");
             int id = Convert.ToInt32(Console.ReadLine());
+            foreach (var user in Users) 
+            {
+               if(user.Id == id)
+                {
+                    Users.Remove(user);
+                }
+            }
             
         }
     }

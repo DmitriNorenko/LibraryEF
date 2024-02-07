@@ -8,6 +8,7 @@
             {
                 UserRepository userRepository = new UserRepository(db.Users);
                 userRepository.AddUser();
+                userRepository.DeleteUser();
                 db.SaveChanges();
             }
         }
