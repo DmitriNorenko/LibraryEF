@@ -6,9 +6,8 @@
         {
            using(var db = new AppContext())
             {
-                UserRepository userRepository = new UserRepository();
-                User user = userRepository.AddUser();
-                db.Add(user);
+                UserRepository userRepository = new UserRepository(db.Users);
+                userRepository.AddUser();
                 db.SaveChanges();
             }
         }
