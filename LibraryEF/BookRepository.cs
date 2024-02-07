@@ -20,7 +20,17 @@ namespace LibraryEF
             string title = Console.ReadLine();
             Console.WriteLine("Введите год выпуска: ");
             int year = Convert.ToInt32(Console.ReadLine());
-            var book = new Book() { Title = title, Year = year };
+            Console.WriteLine("Введите автора книги: ");
+            string author = Console.ReadLine();
+            Console.WriteLine("Введите жанр книги: ");
+            string genre = Console.ReadLine();
+            var book = new Book()
+            {
+                Title = title,
+                Year = year,
+                Author = author,
+                Genre = genre
+            };
             Console.WriteLine("Книга добавлена!");
             Books.Add(book);
         }
@@ -41,10 +51,11 @@ namespace LibraryEF
         }
         public void ShowAllBooks()
         {
-            Console.WriteLine($"Id\tTitle\tYear");
+            Console.WriteLine($"Id\tTitle\tYear\tAuthor\tGenre");
             foreach (var book in Books)
             {
-                Console.WriteLine($"{book.Id}\t{book.Title}\t{book.Year}");
+                Console.WriteLine($"{book.Id}\t{book.Title}\t{book.Year}" +
+                    $"{book.Author}\t{book.Genre}");
             }
         }
         public void ShowBook()
@@ -56,7 +67,8 @@ namespace LibraryEF
                 if (book.Id == id)
                 {
                     Console.WriteLine("Книга найдена!");
-                    Console.WriteLine($"{book.Id}\t{book.Title}\t{book.Year}");
+                    Console.WriteLine($"{book.Id}\t{book.Title}\t{book.Year}" +
+                   $"{book.Author}\t{book.Genre}");
                     return;
                 }
             }

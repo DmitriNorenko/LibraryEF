@@ -11,27 +11,27 @@ namespace LibraryEF
                 UserRepository userRepository = new UserRepository(db.Users);
                 BookRepository bookRepository = new BookRepository(db.Books);
 
-                bookRepository.AddBook();
-                db.SaveChanges();
-                bookRepository.ShowAllBooks();
-                bookRepository.ShowBook();
-                bookRepository.DeleteBook();
-                db.SaveChanges();
-                bookRepository.ShowAllBooks();
-                bookRepository.UpdateBookYear();
-                db.SaveChanges();
-                bookRepository.ShowAllBooks();
+                //bookRepository.AddBook();
+                //db.SaveChanges();
+                //bookRepository.ShowAllBooks();
+                //bookRepository.ShowBook();
+                //bookRepository.DeleteBook();
+                //db.SaveChanges();
+                //bookRepository.ShowAllBooks();
+                //bookRepository.UpdateBookYear();
+                //db.SaveChanges();
+                //bookRepository.ShowAllBooks();
 
-                userRepository.AddUser();
-                db.SaveChanges();
-                userRepository.ShowAll();
-                userRepository.DeleteUser();
-                db.SaveChanges();
-                userRepository.ShowAll();
-                userRepository.ShowUser();
-                userRepository.UpdateUserName();
-                db.SaveChanges();
-                userRepository.ShowAll();
+                //userRepository.AddUser();
+                //db.SaveChanges();
+                //userRepository.ShowAll();
+                //userRepository.DeleteUser();
+                //db.SaveChanges();
+                //userRepository.ShowAll();
+                //userRepository.ShowUser();
+                //userRepository.UpdateUserName();
+                //db.SaveChanges();
+                //userRepository.ShowAll();
 
             }
         }
