@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LibraryEF
 {
     public class UserRepository
     {
         public DbSet<User> Users { get; set; }
-        public UserRepository(DbSet<User> users) 
+        public UserRepository(DbSet<User> users)
         {
             Users = users;
         }
@@ -28,21 +31,20 @@ namespace LibraryEF
         {
             Console.WriteLine("Введите id пользователя для удаления: ");
             int id = Convert.ToInt32(Console.ReadLine());
-            foreach (var user in Users) 
+            foreach (var user in Users)
             {
-               if(user.Id == id)
+                if (user.Id == id)
                 {
                     Console.WriteLine("Пользователь найден и удален!");
                     Users.Remove(user);
                 }
-               else { Console.WriteLine("Пользователя с таким id не обнаружено"); }
+                else { Console.WriteLine("Пользователя с таким id не обнаружено"); }
             }
         }
-        public void ShowAll() 
+        public void ShowAll()
         {
-            
-           // Console.WriteLine($"Id\tName\tEmail");
-            foreach (var user in Users) 
+            Console.WriteLine($"Id\tName\tEmail");
+            foreach (var user in Users)
             {
                 Console.WriteLine($"{user.Id}\t{user.Name}\t{user.Email}");
             }
