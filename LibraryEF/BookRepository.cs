@@ -62,5 +62,22 @@ namespace LibraryEF
             }
             Console.WriteLine("Такой книги нет.");
         }
+        public void UpdateBookYear()
+        {
+            Console.WriteLine("\nВведите id Книги для изменения: ");
+            int id = Convert.ToInt32(Console.ReadLine());
+            foreach (var book in Books)
+            {
+                if (book.Id == id)
+                {
+                    Console.WriteLine("Книга найдена!");
+                    Console.WriteLine("Введите новый год:");
+                    book.Year = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Изменения сохранены!");
+                    return;
+                }
+            }
+            Console.WriteLine("Такой книги нет.");
+        }
     }
 }
