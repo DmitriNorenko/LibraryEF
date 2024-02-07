@@ -66,13 +66,13 @@ namespace LibraryEF
             };
             foreach (string column in ColumnList)
             {
-                Console.Write(column + "\t");
+                Console.Write(column + "  \t ");
             }
             Console.WriteLine();
             foreach (var book in Books)
             {
-                Console.WriteLine($"{book.Id}\t{book.Title}\t{book.Year}" +
-                    $"\t{book.Author}\t{book.Genre}\t{book.UserId}");
+                Console.WriteLine($"{book.Id} \t{book.Title} \t{book.Year}" +
+                    $" \t{book.Author} \t{book.Genre} \t{book.UserId}");
             }
         }
         public void ShowBook()
@@ -107,6 +107,23 @@ namespace LibraryEF
                 }
             }
             Console.WriteLine("Такой книги нет.");
+        }
+        public void ShowGenre()
+        {
+            Console.WriteLine("Какой жанр вам нужен: ");
+            string genre = Console.ReadLine().ToLower();
+            Console.WriteLine("С какого года : ");
+            int fromYear =Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("До какого года : ");
+            int toYear = Convert.ToInt32(Console.ReadLine());
+            var Genre = Books.Where(u => u.Genre == genre)
+                .Where(u => u.Year >= fromYear )
+                .Where(u =>u.Year <= toYear);
+            foreach (var book in Genre)
+            {
+                Console.WriteLine($"{book.Id}\t{book.Title}\t{book.Year}" +
+                   $"\t{book.Author}\t{book.Genre}\t{book.UserId}");
+            }
         }
     }
 }
