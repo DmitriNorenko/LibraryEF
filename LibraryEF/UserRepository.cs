@@ -38,7 +38,6 @@ namespace LibraryEF
                     Console.WriteLine("Пользователь найден и удален!");
                     Users.Remove(user);
                 }
-                else { Console.WriteLine("Пользователя с таким id не обнаружено"); }
             }
         }
         public void ShowAll()
@@ -51,7 +50,7 @@ namespace LibraryEF
         }
         public void ShowUser()
         {
-            Console.WriteLine("Введите id пользователя для удаления: ");
+            Console.WriteLine("Введите id пользователя: ");
             int id = Convert.ToInt32(Console.ReadLine());
             foreach (var user in Users)
             {
@@ -60,7 +59,6 @@ namespace LibraryEF
                     Console.WriteLine("Пользователь найден!");
                     Console.WriteLine($"{user.Id}\t{user.Name}\t{user.Email}");
                 }
-                else { Console.WriteLine("Пользователя с таким id не обнаружено"); }
             }
         }
     }
