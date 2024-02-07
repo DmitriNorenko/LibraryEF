@@ -32,8 +32,10 @@ namespace LibraryEF
             {
                if(user.Id == id)
                 {
+                    Console.WriteLine("Пользователь найден и удален!");
                     Users.Remove(user);
                 }
+               else { Console.WriteLine("Пользователя с таким id не обнаружено"); }
             }
             
         }
