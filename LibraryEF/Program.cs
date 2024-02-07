@@ -32,7 +32,10 @@ namespace LibraryEF
                 //bookRepository.UpdateBookYear();
                 //db.SaveChanges();
                 //bookRepository.ShowAllBooks();
-                bookRepository.ShowGenre();
+
+                //bookRepository.ShowGenre();
+                //bookRepository.ShowAuthor();
+                //bookRepository.ShowGenreOnly();
 
 
 

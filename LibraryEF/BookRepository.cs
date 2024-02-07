@@ -113,17 +113,36 @@ namespace LibraryEF
             Console.WriteLine("Какой жанр вам нужен: ");
             string genre = Console.ReadLine().ToLower();
             Console.WriteLine("С какого года : ");
-            int fromYear =Convert.ToInt32(Console.ReadLine());
+            int fromYear = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("До какого года : ");
             int toYear = Convert.ToInt32(Console.ReadLine());
             var Genre = Books.Where(u => u.Genre == genre)
-                .Where(u => u.Year >= fromYear )
-                .Where(u =>u.Year <= toYear);
+                .Where(u => u.Year >= fromYear)
+                .Where(u => u.Year <= toYear);
             foreach (var book in Genre)
             {
                 Console.WriteLine($"{book.Id}\t{book.Title}\t{book.Year}" +
                    $"\t{book.Author}\t{book.Genre}\t{book.UserId}");
             }
+        }
+        public void ShowAuthor()
+        {
+            Console.WriteLine("Какой автор вам нужен: ");
+            string author = Console.ReadLine();
+            var Author = Books.Where(u => u.Author == author);
+
+            foreach (var a in Author)
+            {
+                Console.WriteLine($"{a.Id}\t{a.Title}\t{a.Year}" +
+                   $"\t{a.Author}\t{a.Genre}\t{a.UserId}");
+            }
+        }
+        public void ShowGenreOnly()
+        {
+            Console.WriteLine("Какой жанр вам нужен: ");
+            string genre = Console.ReadLine().ToLower();
+            var Genre = Books.Where(u => u.Genre == genre).Count();
+            Console.WriteLine(Genre);
         }
     }
 }
