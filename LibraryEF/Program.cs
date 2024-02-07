@@ -9,6 +9,19 @@ namespace LibraryEF
            using(var db = new AppContext())
             {
                 UserRepository userRepository = new UserRepository(db.Users);
+                BookRepository bookRepository = new BookRepository(db.Books);
+
+                bookRepository.AddBook();
+                db.SaveChanges();
+                bookRepository.ShowAllBooks();
+                bookRepository.ShowBook();
+                bookRepository.DeleteBook();
+                db.SaveChanges();
+                bookRepository.ShowAllBooks();
+                bookRepository.UpdateBookYear();
+                db.SaveChanges();
+                bookRepository.ShowAllBooks();
+
                 userRepository.AddUser();
                 db.SaveChanges();
                 userRepository.ShowAll();
@@ -19,6 +32,7 @@ namespace LibraryEF
                 userRepository.UpdateUserName();
                 db.SaveChanges();
                 userRepository.ShowAll();
+
             }
         }
     }

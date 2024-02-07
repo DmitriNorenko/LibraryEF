@@ -18,10 +18,10 @@ namespace LibraryEF
         {
             Console.WriteLine("Введите название книги: ");
             string title = Console.ReadLine();
-            Console.WriteLine("Введите Email пользователя: ");
+            Console.WriteLine("Введите год выпуска: ");
             int year = Convert.ToInt32(Console.ReadLine());
             var book = new Book() { Title = title, Year = year };
-            Console.WriteLine("Пользователь добавлен!");
+            Console.WriteLine("Книга добавлена!");
             Books.Add(book);
         }
         public void DeleteBook()
