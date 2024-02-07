@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -60,6 +61,23 @@ namespace LibraryEF
                 {
                     Console.WriteLine("Пользователь найден!");
                     Console.WriteLine($"{user.Id}\t{user.Name}\t{user.Email}");
+                    return;
+                }
+            }
+            Console.WriteLine("Такого пользователя нет.");
+        }
+        public void UpdateUserName()
+        {
+            Console.WriteLine("\nВведите id пользователя для изменения: ");
+            int id = Convert.ToInt32(Console.ReadLine());
+            foreach (var user in Users)
+            {
+                if (user.Id == id)
+                {
+                    Console.WriteLine("Пользователь найден!");
+                    Console.WriteLine("Введите новое имя:");
+                    user.Name = Console.ReadLine();
+                    Console.WriteLine("Изменения сохранены!");
                     return;
                 }
             }
