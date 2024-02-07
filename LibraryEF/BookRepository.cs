@@ -144,5 +144,70 @@ namespace LibraryEF
             var Genre = Books.Where(u => u.Genre == genre).Count();
             Console.WriteLine(Genre);
         }
+        public bool CheckBook()
+        {
+            Console.WriteLine("Какой нужен автор: ");
+            string author = Console.ReadLine();
+            Console.WriteLine("Название нужной книги: ");
+            string title = Console.ReadLine();
+            var Book = Books.Where(u => u.Title == title)
+                .Where(u => u.Author == author);
+            if (Book.Count() > 0)
+            {
+                Console.WriteLine("Такая книга есть");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Такой книги нет");
+                return false;
+            }
+        }
+        public bool CheckUserHaveBook()
+        {
+            Console.WriteLine("Название нужной книги: ");
+            string title = Console.ReadLine();
+            Console.WriteLine("Введите id пользователя: ");
+            int id = Convert.ToInt32(Console.ReadLine());
+            var checkUserBook = Books.Where(u => u.UserId == id)
+                .Where(u => u.Title == title);
+            if (checkUserBook.Count() > 0)
+            {
+                Console.WriteLine("Книга у пользователя");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Книга у другого пользователя");
+                return false;
+            }
+        }
+        public void CountBookHaveUser()
+        {
+            Console.WriteLine("Введите id пользователя: ");
+            int id = Convert.ToInt32(Console.ReadLine());
+            var checkcountBook = Books.Where(u => u.UserId == id).Count();
+            Console.WriteLine(checkcountBook);
+        }
+        public void Year()
+        {
+            Console.WriteLine("Самая новая книга: ");
+            var book = Books.OrderByDescending(u => u.Year).First();
+            Console.WriteLine($"{book.Id}\t{book.Title}\t{book.Year}" +
+                  $"\t{book.Author}\t{book.Genre}\t{book.UserId}");
+        }
+        public void SortedTitle()
+        {
+            var title = Books.OrderBy(u => u.Title).Select(u => u.Title);
+            foreach (var item in title) Console.WriteLine(item);
+        }
+        public void SortedYear()
+        {
+            var year = Books.OrderByDescending(u => u.Year);
+            foreach (var item in year)
+            {
+                Console.WriteLine(item.Title+"\t"+item.Year);
+            }
+        }
     }
 }

@@ -36,7 +36,12 @@ namespace LibraryEF
                 //bookRepository.ShowGenre();
                 //bookRepository.ShowAuthor();
                 //bookRepository.ShowGenreOnly();
-
+                //bookRepository.CheckBook();
+                //bookRepository.CheckUserHaveBook();
+                //bookRepository.CountBookHaveUser();
+                //bookRepository.Year();
+                //bookRepository.SortedTitle();
+                //bookRepository.SortedYear();
 
 
             }
