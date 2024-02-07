@@ -24,12 +24,15 @@ namespace LibraryEF
             string author = Console.ReadLine();
             Console.WriteLine("Введите жанр книги: ");
             string genre = Console.ReadLine();
+            Console.WriteLine("Введите Id Пользователя книги ");
+            int userId = Convert.ToInt32(Console.ReadLine());
             var book = new Book()
             {
                 Title = title,
                 Year = year,
                 Author = author,
-                Genre = genre
+                Genre = genre,
+                UserId = userId
             };
             Console.WriteLine("Книга добавлена!");
             Books.Add(book);
@@ -51,11 +54,25 @@ namespace LibraryEF
         }
         public void ShowAllBooks()
         {
-            Console.WriteLine($"Id\tTitle\tYear\tAuthor\tGenre");
+            Console.WriteLine();
+            var ColumnList = new List<string>()
+            {
+                "Id",
+                "Title",
+                "Year",
+                "Author",
+                "Genre",
+                "UserId"
+            };
+            foreach (string column in ColumnList)
+            {
+                Console.Write(column + "\t");
+            }
+            Console.WriteLine();
             foreach (var book in Books)
             {
                 Console.WriteLine($"{book.Id}\t{book.Title}\t{book.Year}" +
-                    $"{book.Author}\t{book.Genre}");
+                    $"\t{book.Author}\t{book.Genre}\t{book.UserId}");
             }
         }
         public void ShowBook()
@@ -68,7 +85,7 @@ namespace LibraryEF
                 {
                     Console.WriteLine("Книга найдена!");
                     Console.WriteLine($"{book.Id}\t{book.Title}\t{book.Year}" +
-                   $"{book.Author}\t{book.Genre}");
+                   $"\t{book.Author}\t{book.Genre}\t{book.UserId}");
                     return;
                 }
             }
