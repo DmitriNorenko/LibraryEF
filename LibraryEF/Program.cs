@@ -10,7 +10,8 @@ namespace LibraryEF
             {
                 UserRepository userRepository = new UserRepository(db.Users);
                 //userRepository.AddUser();
-                //userRepository.DeleteUser();
+                userRepository.ShowAll();
+                userRepository.DeleteUser();
                 userRepository.ShowAll();
                 userRepository.ShowUser();
                 db.SaveChanges();

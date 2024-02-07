@@ -37,8 +37,10 @@ namespace LibraryEF
                 {
                     Console.WriteLine("Пользователь найден и удален!");
                     Users.Remove(user);
+                    return;
                 }
             }
+            Console.WriteLine("Такого пользователя нет.");
         }
         public void ShowAll()
         {
@@ -58,8 +60,10 @@ namespace LibraryEF
                 {
                     Console.WriteLine("Пользователь найден!");
                     Console.WriteLine($"{user.Id}\t{user.Name}\t{user.Email}");
+                    return;
                 }
             }
+            Console.WriteLine("Такого пользователя нет.");
         }
     }
 }
