@@ -49,5 +49,19 @@ namespace LibraryEF
                 Console.WriteLine($"{user.Id}\t{user.Name}\t{user.Email}");
             }
         }
+        public void ShowUser()
+        {
+            Console.WriteLine("Введите id пользователя для удаления: ");
+            int id = Convert.ToInt32(Console.ReadLine());
+            foreach (var user in Users)
+            {
+                if (user.Id == id)
+                {
+                    Console.WriteLine("Пользователь найден!");
+                    Console.WriteLine($"{user.Id}\t{user.Name}\t{user.Email}");
+                }
+                else { Console.WriteLine("Пользователя с таким id не обнаружено"); }
+            }
+        }
     }
 }

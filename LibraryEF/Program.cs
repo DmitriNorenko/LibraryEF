@@ -12,6 +12,7 @@ namespace LibraryEF
                 //userRepository.AddUser();
                 //userRepository.DeleteUser();
                 userRepository.ShowAll();
+                userRepository.ShowUser();
                 db.SaveChanges();
             }
         }
