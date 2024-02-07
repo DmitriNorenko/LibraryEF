@@ -39,5 +39,13 @@ namespace LibraryEF
             }
             Console.WriteLine("Такой книги нет.");
         }
+        public void ShowAllBooks()
+        {
+            Console.WriteLine($"Id\tTitle\tYear");
+            foreach (var book in Books)
+            {
+                Console.WriteLine($"{book.Id}\t{book.Title}\t{book.Year}");
+            }
+        }
     }
 }
