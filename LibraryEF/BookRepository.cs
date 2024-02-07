@@ -142,7 +142,7 @@ namespace LibraryEF
             Console.WriteLine("Какой жанр вам нужен: ");
             string genre = Console.ReadLine().ToLower();
             var Genre = Books.Where(u => u.Genre == genre).Count();
-            Console.WriteLine(Genre);
+            Console.WriteLine($"Книг с таким жанром:{Genre}") ;
         }
         public bool CheckBook()
         {
@@ -184,10 +184,11 @@ namespace LibraryEF
         }
         public void CountBookHaveUser()
         {
+            Console.WriteLine("\nСколько у пользователя книг:");
             Console.WriteLine("Введите id пользователя: ");
             int id = Convert.ToInt32(Console.ReadLine());
             var checkcountBook = Books.Where(u => u.UserId == id).Count();
-            Console.WriteLine(checkcountBook);
+            Console.WriteLine($"Всего: {checkcountBook}") ;
         }
         public void Year()
         {
@@ -198,11 +199,13 @@ namespace LibraryEF
         }
         public void SortedTitle()
         {
+            Console.WriteLine("\nСортированный список по алфавиту.");
             var title = Books.OrderBy(u => u.Title).Select(u => u.Title);
             foreach (var item in title) Console.WriteLine(item);
         }
         public void SortedYear()
         {
+            Console.WriteLine("\nСортированный список по убыванию даты выхода.");
             var year = Books.OrderByDescending(u => u.Year);
             foreach (var item in year)
             {
