@@ -37,7 +37,15 @@ namespace LibraryEF
                 }
                else { Console.WriteLine("Пользователя с таким id не обнаружено"); }
             }
+        }
+        public void ShowAll() 
+        {
             
+           // Console.WriteLine($"Id\tName\tEmail");
+            foreach (var user in Users) 
+            {
+                Console.WriteLine($"{user.Id}\t{user.Name}\t{user.Email}");
+            }
         }
     }
 }
