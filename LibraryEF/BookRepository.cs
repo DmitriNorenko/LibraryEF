@@ -24,5 +24,20 @@ namespace LibraryEF
             Console.WriteLine("Пользователь добавлен!");
             Books.Add(book);
         }
+        public void DeleteBook()
+        {
+            Console.WriteLine("Введите id книги для удаления: ");
+            int id = Convert.ToInt32(Console.ReadLine());
+            foreach (var book in Books)
+            {
+                if (book.Id == id)
+                {
+                    Console.WriteLine("Книга найдена и удалена!");
+                    Books.Remove(book);
+                    return;
+                }
+            }
+            Console.WriteLine("Такой книги нет.");
+        }
     }
 }
