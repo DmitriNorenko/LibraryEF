@@ -10,13 +10,15 @@ namespace LibraryEF
             {
                 UserRepository userRepository = new UserRepository(db.Users);
                 userRepository.AddUser();
+                db.SaveChanges();
                 userRepository.ShowAll();
                 userRepository.DeleteUser();
+                db.SaveChanges();
                 userRepository.ShowAll();
                 userRepository.ShowUser();
                 userRepository.UpdateUserName();
-                userRepository.ShowUser();
                 db.SaveChanges();
+                userRepository.ShowAll();
             }
         }
     }
